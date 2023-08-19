@@ -25,7 +25,6 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       resizeToAvoidBottomPadding: false,
       body: SafeArea(
           child: Container(
         padding: EdgeInsets.only(left: 15, right: 15),
@@ -219,7 +218,8 @@ class _RegisterState extends State<Register> {
               child: RaisedButton(
                 onPressed: () {},
                 textColor: Colors.black,
-                child: Text("Register Now"),elevation: 5,
+                child: Text("Register Now"),
+                elevation: 5,
               ),
             ),
           )

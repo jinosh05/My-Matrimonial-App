@@ -1,5 +1,5 @@
-import 'package:Matrimony/RegisterPage.dart';
-import 'package:Matrimony/splash2.dart';
+import 'package:matrimony/RegisterPage.dart';
+import 'package:matrimony/splash2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Matrimony "),
+        title: Text("matrimony "),
         toolbarHeight: 40,
         actions: [
           FlatButton(

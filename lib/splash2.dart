@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:Matrimony/LoginPage.dart';
-import 'package:Matrimony/main.dart';
+import 'package:matrimony/LoginPage.dart';
+import 'package:matrimony/main.dart';
 import 'package:flutter/material.dart';
 
 class Splash2 extends StatefulWidget {
@@ -15,26 +15,23 @@ class _Splash2State extends State<Splash2> {
     initialPage: 0,
   );
 
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(Duration(seconds: 1), (Timer timer) {
+      if (_currentPage < 2) {
+        _currentPage++;
+      } else {
+        _currentPage = 2;
+      }
 
-@override
-void initState() {
-  super.initState();
-  Timer.periodic(Duration(seconds: 1), (Timer timer) {
-    if (_currentPage < 2) {
-      _currentPage++;
-    } else {
-      _currentPage = 2;
-    }
-
-    pagecontroller.animateToPage(
-      _currentPage,
-      duration: Duration(milliseconds: 350),
-      curve: Curves.easeIn,
-    );
-  });
-}
-
-
+      pagecontroller.animateToPage(
+        _currentPage,
+        duration: Duration(milliseconds: 350),
+        curve: Curves.easeIn,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +41,6 @@ void initState() {
         width: double.infinity,
         child: SafeArea(
           child: PageView(
-           
             controller: pagecontroller,
             children: [
               Container(
@@ -82,7 +78,10 @@ void initState() {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (context) => LoginScreen()));
                           },
-                          child: Text("Login",style: TextStyle(color: Colors.white),),
+                          child: Text(
+                            "Login",
+                            style: TextStyle(color: Colors.white),
+                          ),
                           color: Colors.blue[500],
                           elevation: 5,
                           shape: RoundedRectangleBorder(
@@ -94,7 +93,10 @@ void initState() {
                           Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) => MyApp()));
                         },
-                        child: Text("Skip For Now",style: TextStyle(color: Colors.white),),
+                        child: Text(
+                          "Skip For Now",
+                          style: TextStyle(color: Colors.white),
+                        ),
                         color: Colors.red,
                       ),
                     ],

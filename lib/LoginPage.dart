@@ -1,5 +1,5 @@
-import 'package:Matrimony/RegisterPage.dart';
-import 'package:Matrimony/SearchPage.dart';
+import 'package:matrimony/RegisterPage.dart';
+import 'package:matrimony/SearchPage.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -172,7 +172,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       style: TextStyle(color: Colors.white)),
                 ],
               ),
-               Row(
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
@@ -181,8 +181,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 200,
                     child: RaisedButton(
                       onPressed: () {
-                       Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Register() ));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => Register()));
                       },
                       child: Text(
                         "Register Now",
