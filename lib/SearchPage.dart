@@ -7,7 +7,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-   int age = 1;
+  int age = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -52,23 +52,23 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             Container(
-                padding: EdgeInsets.only(left: 20, top: 10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Minimum Age",
-                      style: TextStyle(fontSize: 20),
-                    ),
-                NumberPicker.integer(
-                initialValue: age,
-                minValue: 0,
-                maxValue: 100,
-                onChanged: (newValue) =>
-                      setState(() => age = newValue)),
-
-                  ],
-                )),
+              padding: EdgeInsets.only(left: 20, top: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Minimum Age",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  NumberPicker(
+                    value: age,
+                    minValue: 0,
+                    maxValue: 100,
+                    onChanged: (newValue) => setState(() => age = newValue),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

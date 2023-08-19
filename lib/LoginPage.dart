@@ -9,7 +9,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final formkey = GlobalKey<FormState>();
-  bool checkboxvalue = false;
+  bool? checkboxvalue = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Container(
           decoration: BoxDecoration(
               border: Border.all(
-                color: Colors.blue[200],
+                color: Colors.blue[200]!,
                 width: 3,
               ),
               image: DecorationImage(
@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             }
                           },
 
-                          obscureText: !checkboxvalue,
+                          obscureText: !checkboxvalue!,
                           decoration: InputDecoration(
                             icon: Icon(
                               Icons.lock,
@@ -136,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 200,
                     child: RaisedButton(
                       onPressed: () {
-                        if (formkey.currentState.validate()) {
+                        if (formkey.currentState!.validate()) {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => SearchPage()));
                         }

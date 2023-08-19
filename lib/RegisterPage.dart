@@ -8,7 +8,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   DateTime selectedDate = DateTime.now();
   _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
+    final DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate, // Refer step 1
       firstDate: DateTime(1980),
@@ -20,7 +20,7 @@ class _RegisterState extends State<Register> {
       });
   }
 
-  int religion = 1, lang = 1;
+  int? religion = 1, lang = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class _RegisterState extends State<Register> {
         height: double.infinity,
         decoration: BoxDecoration(
             border: Border.all(
-              color: Colors.blue[200],
+              color: Colors.blue[200]!,
               width: 3,
             ),
             image: DecorationImage(
@@ -135,7 +135,7 @@ class _RegisterState extends State<Register> {
                     value: 9,
                   ),
                 ],
-                onChanged: (value) {
+                onChanged: (dynamic value) {
                   setState(() {
                     religion = value;
                   });
@@ -202,7 +202,7 @@ class _RegisterState extends State<Register> {
                     value: 13,
                   ),
                 ],
-                onChanged: (value) {
+                onChanged: (dynamic value) {
                   setState(() {
                     lang = value;
                   });
