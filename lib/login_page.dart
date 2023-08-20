@@ -1,13 +1,15 @@
-import 'package:matrimony/RegisterPage.dart';
-import 'package:matrimony/SearchPage.dart';
 import 'package:flutter/material.dart';
+import 'package:matrimony/register_page.dart';
+import 'package:matrimony/search_page.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  LoginScreenState createState() => LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends State<LoginScreen> {
   final formkey = GlobalKey<FormState>();
   bool? checkboxvalue = false;
   @override
@@ -20,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 color: Colors.blue[200]!,
                 width: 3,
               ),
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage(
                     "img/back.jpg",
                   ),
@@ -28,7 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(padding: EdgeInsets.only(left: 10, right: 10)),
@@ -44,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                       Container(
                         height: 95,
-                        padding: EdgeInsets.all(25),
+                        padding: const EdgeInsets.all(25),
                         child: TextFormField(
                           // ignore: missing_return
                           validator: (value) {
@@ -55,24 +57,25 @@ class _LoginScreenState extends State<LoginScreen> {
                             } else if (value.length <= 5) {
                               return "Name too short";
                             }
+                            return null;
                           },
                           decoration: InputDecoration(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.person,
                               color: Colors.white,
                             ),
                             hintText: "Enter E-mail",
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: const TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.white, width: 1.0),
+                                borderSide: const BorderSide(
+                                    color: Colors.white, width: 1.0),
                                 borderRadius: BorderRadius.circular(25)),
                           ),
                         ),
                       ),
                       Container(
                         height: 45,
-                        padding: EdgeInsets.only(left: 25, right: 25),
+                        padding: const EdgeInsets.only(left: 25, right: 25),
                         child: TextFormField(
                           // ignore: missing_return
                           validator: (value) {
@@ -83,19 +86,20 @@ class _LoginScreenState extends State<LoginScreen> {
                             } else if (value.length <= 5) {
                               return "Password too short";
                             }
+                            return null;
                           },
 
                           obscureText: !checkboxvalue!,
                           decoration: InputDecoration(
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.lock,
                               color: Colors.white,
                             ),
                             hintText: "Password",
-                            hintStyle: TextStyle(color: Colors.white),
+                            hintStyle: const TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Colors.white, width: 1.0),
+                                borderSide: const BorderSide(
+                                    color: Colors.white, width: 1.0),
                                 borderRadius: BorderRadius.circular(25)),
                           ),
                         ),
@@ -103,13 +107,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   )),
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   right: 20,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Padding(padding: EdgeInsets.only(left: 50)),
+                    const Padding(padding: EdgeInsets.only(left: 50)),
                     Checkbox(
                       value: checkboxvalue,
                       onChanged: (value) {
@@ -131,36 +135,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 5, right: 5)),
-                  Container(
+                  const Padding(padding: EdgeInsets.only(left: 5, right: 5)),
+                  SizedBox(
                     width: 200,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: () {
                         if (formkey.currentState!.validate()) {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => SearchPage()));
+                              builder: (context) => const SearchPage()));
                         }
                       },
-                      child: Text(
+                      child: const Text(
                         "Login",
                         style: TextStyle(fontSize: 16),
                       ),
-                      color: Colors.blue,
-                      textColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25)),
+                      // color: Colors.blue,
+                      // textColor: Colors.white,
+                      // shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(25)),
                     ),
                   ),
                 ],
               ),
               Row(
                 children: [
-                  Padding(padding: EdgeInsets.only(top: 25, left: 15)),
-                  RaisedButton(
-                    elevation: 0,
+                  const Padding(padding: EdgeInsets.only(top: 25, left: 15)),
+                  ElevatedButton(
                     onPressed: () {},
-                    color: Colors.transparent,
-                    child: Text(
+                    // color: Colors.transparent,
+                    child: const Text(
                       "Forgot Password?",
                       style: TextStyle(
                           color: Colors.blue,
@@ -168,7 +171,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
-                  Text("Don't have an account?",
+                  const Text("Don't have an account?",
                       style: TextStyle(color: Colors.white)),
                 ],
               ),
@@ -176,22 +179,21 @@ class _LoginScreenState extends State<LoginScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Padding(padding: EdgeInsets.only(left: 5, right: 5)),
-                  Container(
+                  const Padding(padding: EdgeInsets.only(left: 5, right: 5)),
+                  SizedBox(
                     width: 200,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => Register()));
+                            builder: (context) => const Register()));
                       },
-                      child: Text(
+                      // color: Colors.pink,
+                      // shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(25)),
+                      child: const Text(
                         "Register Now",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
-                      color: Colors.pink,
-                      textColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25)),
                     ),
                   ),
                 ],

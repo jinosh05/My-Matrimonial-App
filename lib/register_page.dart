@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
+
   @override
-  _RegisterState createState() => _RegisterState();
+  RegisterState createState() => RegisterState();
 }
 
-class _RegisterState extends State<Register> {
+class RegisterState extends State<Register> {
   DateTime selectedDate = DateTime.now();
   _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -14,10 +16,11 @@ class _RegisterState extends State<Register> {
       firstDate: DateTime(1980),
       lastDate: DateTime(2021),
     );
-    if (picked != null && picked != selectedDate)
+    if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
       });
+    }
   }
 
   int? religion = 1, lang = 1;
@@ -27,7 +30,7 @@ class _RegisterState extends State<Register> {
     return Scaffold(
       body: SafeArea(
           child: Container(
-        padding: EdgeInsets.only(left: 15, right: 15),
+        padding: const EdgeInsets.only(left: 15, right: 15),
         width: double.infinity,
         height: double.infinity,
         decoration: BoxDecoration(
@@ -35,104 +38,106 @@ class _RegisterState extends State<Register> {
               color: Colors.blue[200]!,
               width: 3,
             ),
-            image: DecorationImage(
+            image: const DecorationImage(
                 image: AssetImage(
                   "img/back.jpg",
                 ),
                 fit: BoxFit.cover)),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Padding(padding: EdgeInsets.only(top: 10, bottom: 10)),
+          const Padding(padding: EdgeInsets.only(top: 10, bottom: 10)),
           TextFormField(
             maxLength: 20,
-            style: TextStyle(color: Colors.yellow),
+            style: const TextStyle(color: Colors.yellow),
             decoration: InputDecoration(
                 helperText: "Name",
-                helperStyle: TextStyle(color: Colors.white70),
+                helperStyle: const TextStyle(color: Colors.white70),
                 hintText: "Name",
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white60, width: 2)),
-                hintStyle: TextStyle(fontSize: 16, color: Colors.white)),
+                    borderSide:
+                        const BorderSide(color: Colors.white60, width: 2)),
+                hintStyle: const TextStyle(fontSize: 16, color: Colors.white)),
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Text(
                 "${selectedDate.toLocal()}".split(' ')[0],
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                     color: Colors.redAccent),
               ),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () => _selectDate(context), // Refer step 3
-                child: Text(
+                child: const Text(
                   'Select DOB',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                 ),
-                color: Colors.purple,
+                // color: Colors.purple,
               ),
             ],
           ),
           TextFormField(
             maxLength: 20,
-            style: TextStyle(color: Colors.yellow),
+            style: const TextStyle(color: Colors.yellow),
             decoration: InputDecoration(
                 helperText: "Location",
-                helperStyle: TextStyle(color: Colors.white70),
+                helperStyle: const TextStyle(color: Colors.white70),
                 hintText: "Location",
                 focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide(color: Colors.white60, width: 2)),
-                hintStyle: TextStyle(fontSize: 16, color: Colors.white)),
+                    borderSide:
+                        const BorderSide(color: Colors.white60, width: 2)),
+                hintStyle: const TextStyle(fontSize: 16, color: Colors.white)),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child: DropdownButton(
                 dropdownColor: Colors.black,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: const TextStyle(color: Colors.white, fontSize: 16),
                 value: religion,
-                items: [
+                items: const [
                   DropdownMenuItem(
-                    child: Text("Hindu"),
                     value: 1,
+                    child: Text("Hindu"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Christian"),
                     value: 2,
+                    child: Text("Christian"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Muslim"),
                     value: 3,
+                    child: Text("Muslim"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Jain"),
                     value: 4,
+                    child: Text("Jain"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Sikh"),
                     value: 5,
+                    child: Text("Sikh"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Buddist"),
                     value: 6,
+                    child: Text("Buddist"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Inter-Religion"),
                     value: 7,
+                    child: Text("Inter-Religion"),
                   ),
                   DropdownMenuItem(
-                    child: Text("No-Religion"),
                     value: 8,
+                    child: Text("No-Religion"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Others"),
                     value: 9,
+                    child: Text("Others"),
                   ),
                 ],
                 onChanged: (dynamic value) {
@@ -141,65 +146,65 @@ class _RegisterState extends State<Register> {
                   });
                 }),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
-            padding: EdgeInsets.only(left: 10),
+            padding: const EdgeInsets.only(left: 10),
             child: DropdownButton(
                 dropdownColor: Colors.black,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: const TextStyle(color: Colors.white, fontSize: 16),
                 value: lang,
-                items: [
+                items: const [
                   DropdownMenuItem(
-                    child: Text("Tamil"),
                     value: 1,
+                    child: Text("Tamil"),
                   ),
                   DropdownMenuItem(
-                    child: Text("English"),
                     value: 2,
+                    child: Text("English"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Hindi"),
                     value: 3,
+                    child: Text("Hindi"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Gujarathi"),
                     value: 4,
+                    child: Text("Gujarathi"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Urdu"),
                     value: 5,
+                    child: Text("Urdu"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Punjabi"),
                     value: 6,
+                    child: Text("Punjabi"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Marathi"),
                     value: 7,
+                    child: Text("Marathi"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Telugu"),
                     value: 8,
+                    child: Text("Telugu"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Malayalam"),
                     value: 9,
+                    child: Text("Malayalam"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Bengali"),
                     value: 10,
+                    child: Text("Bengali"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Kannada"),
                     value: 11,
+                    child: Text("Kannada"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Sindhi"),
                     value: 12,
+                    child: Text("Sindhi"),
                   ),
                   DropdownMenuItem(
-                    child: Text("Others"),
                     value: 13,
+                    child: Text("Others"),
                   ),
                 ],
                 onChanged: (dynamic value) {
@@ -208,18 +213,18 @@ class _RegisterState extends State<Register> {
                   });
                 }),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Container(
             alignment: Alignment.center,
             child: ButtonTheme(
               minWidth: 200,
               height: 50,
               buttonColor: Colors.lightBlue,
-              child: RaisedButton(
+              child: ElevatedButton(
                 onPressed: () {},
-                textColor: Colors.black,
-                child: Text("Register Now"),
-                elevation: 5,
+                // textColor: Colors.black,
+                child: const Text("Register Now"),
+                // elevation: 5,
               ),
             ),
           )

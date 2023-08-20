@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class SearchPage extends StatefulWidget {
+  const SearchPage({Key? key}) : super(key: key);
+
   @override
-  _SearchPageState createState() => _SearchPageState();
+  SearchPageState createState() => SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class SearchPageState extends State<SearchPage> {
   int age = 1;
 
   @override
@@ -16,7 +18,7 @@ class _SearchPageState extends State<SearchPage> {
       child: Scaffold(
         appBar: AppBar(
           toolbarHeight: 75,
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: [
               Tab(
                 icon: Image(
@@ -40,8 +42,8 @@ class _SearchPageState extends State<SearchPage> {
         body: TabBarView(
           children: [
             Container(
-              padding: EdgeInsets.only(left: 20, top: 10),
-              child: Column(
+              padding: const EdgeInsets.only(left: 20, top: 10),
+              child: const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -52,11 +54,11 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 20, top: 10),
+              padding: const EdgeInsets.only(left: 20, top: 10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     "Minimum Age",
                     style: TextStyle(fontSize: 20),
                   ),

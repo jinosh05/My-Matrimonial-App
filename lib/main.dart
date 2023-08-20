@@ -1,38 +1,37 @@
-import 'package:matrimony/RegisterPage.dart';
-import 'package:matrimony/splash2.dart';
 import 'package:flutter/material.dart';
+import 'package:matrimony/register_page.dart';
+import 'package:matrimony/splash2.dart';
 
 void main() {
-  runApp(new MaterialApp(
+  runApp(const MaterialApp(
     home: Splash2(),
   ));
 }
 
 class MyApp extends StatefulWidget {
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  MyAppState createState() => MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("matrimony "),
+        title: const Text("matrimony "),
         toolbarHeight: 40,
         actions: [
-          FlatButton(
+          TextButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => Splash2()));
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const Splash2()));
             },
-            child: Text(
+            child: const Text(
               "Login",
               style: TextStyle(fontSize: 15, color: Colors.white),
             ),
-            color: Colors.red,
           )
         ],
       ),
@@ -41,76 +40,76 @@ class _MyAppState extends State<MyApp> {
         child: Column(
           children: [
             UserAccountsDrawerHeader(
-              accountEmail: Text("guest@mymatrimony.com"),
-              accountName: Text("Guest"),
+              accountEmail: const Text("guest@mymatrimony.com"),
+              accountName: const Text("Guest"),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.pink[100],
-                child: Icon(Icons.account_circle),
+                child: const Icon(Icons.account_circle),
               ),
             ),
             ListTile(
-              title: Text("Search",
+              title: const Text("Search",
                   style: TextStyle(color: Colors.black87, fontSize: 20)),
-              leading: Icon(Icons.search),
+              leading: const Icon(Icons.search),
               onTap: () {},
             ),
             ListTile(
-              title: Text("About us",
+              title: const Text("About us",
                   style: TextStyle(color: Colors.black87, fontSize: 20)),
-              leading: Icon(Icons.account_box),
+              leading: const Icon(Icons.account_box),
               onTap: () {},
             ),
             ListTile(
-              title: Text("Help",
+              title: const Text("Help",
                   style: TextStyle(color: Colors.black87, fontSize: 20)),
-              leading: Icon(Icons.contact_support),
+              leading: const Icon(Icons.contact_support),
               onTap: () {},
             ),
             ListTile(
-              title: Text("Contact us",
+              title: const Text("Contact us",
                   style: TextStyle(color: Colors.black87, fontSize: 20)),
-              leading: Icon(Icons.contacts_outlined),
+              leading: const Icon(Icons.contacts_outlined),
               onTap: () {},
             ),
             ListTile(
-              title: Text("Settings",
+              title: const Text("Settings",
                   style: TextStyle(color: Colors.black87, fontSize: 20)),
-              leading: Icon(Icons.settings),
+              leading: const Icon(Icons.settings),
               onTap: () {},
             ),
           ],
         ),
       ),
-      body: Container(
+      body: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
         child: Column(
           children: [
-            Image(
+            const Image(
               image: AssetImage('img/free.png'),
               height: 370,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Register()));
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const Register()));
               },
-              child: Text(
+              child: const Text(
                 "Register Now",
                 style: TextStyle(color: Colors.white),
               ),
-              color: Colors.redAccent,
+              // color: Colors.redAccent,
             ),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Membership Plan",
                 style: TextStyle(color: Colors.white),
               ),
-              color: Colors.blue,
+              // color: Colors.blue,
             )
           ],
         ),
-        height: double.infinity,
-        width: double.infinity,
       ),
     );
   }
